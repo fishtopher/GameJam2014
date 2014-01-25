@@ -13,7 +13,18 @@ public class Player : MonoBehaviour
 	
 	private bool isMovingVert = false;
 
+
 	public float m_runSpeed = 5;
+	public float m_score = 0;
+	public float Score { 
+		get { return m_score; } 
+		set 
+		{
+			m_score = value; 
+			m_scoreText.text = string.Format("{0:000}", m_score); 
+		}
+	}
+	public TextMesh m_scoreText;
 
 	// Use this for initialization
 	void Awake () 
@@ -21,7 +32,13 @@ public class Player : MonoBehaviour
 		Instance = this;
 		StartCoroutine( Wait() );
 	}
-	
+
+	public void Reset()
+	{
+		m_score = 0;
+		transform.position = Vector3.zero;
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{

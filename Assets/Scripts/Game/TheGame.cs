@@ -29,8 +29,6 @@ public class TheGame : MonoBehaviour {
 	
 	public void PlayIntro()
 	{
-		printf.PrintPersistentMessage("playintro");
-		
 		m_introScene.SetActive(true);
 		m_gameScene.SetActive(false);
 
