@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 	public float m_runSpeed = 5;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		Instance = this;
 		StartCoroutine( Wait() );
@@ -99,7 +99,6 @@ public class Player : MonoBehaviour
 	private IEnumerator Wait() {
 		yield return new WaitForSeconds(1.0f);
 		Animator playerAnim = this.GetComponent<Animator>();
-
 		playerAnim.Play("run");
 	}
 }
