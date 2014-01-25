@@ -1,0 +1,12 @@
+.DS_Store
+Library
+Temp
+*.csproj
+*.pidb
+*.unityproj
+*.sln
+*.userprefs
+*.blend1*
+*.blend2*
+Kuruma/Mac_OculusUnityDemoScene.app
+Kuruma/Mac_OculusUnityDemoScene.app/*
