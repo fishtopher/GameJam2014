@@ -2,20 +2,23 @@
 using System.Collections;
 using InControl;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour 
+{
+	public static Player Instance;
 
-	private const float Y_POS_MAX = 0.5f;
-	private const float Y_POS_MIN = -0.5f;
-	private const float MOVE_DISTANCE = 0.5f;
+	private const float Y_POS_MAX = 0.64f;
+	private const float Y_POS_MIN = -0.64f;
+	private const float MOVE_DISTANCE = 0.64f;
 	private const float MOVE_SPEED_VERT = 2.0f;
 	
 	private bool isMovingVert = false;
 
 	public float m_runSpeed = 5;
-	public float m_lansSwitchSpeed = 5;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
+		Instance = this;
 		StartCoroutine( Wait() );
 	}
 	
@@ -88,7 +91,7 @@ public class Player : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
-		col.gameObject.SendMessage("Collect");
+		col.gameObject.SendMessage("Collect", this);
 	}
 
 	// FOR TESTING
