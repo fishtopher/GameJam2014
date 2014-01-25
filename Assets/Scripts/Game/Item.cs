@@ -3,21 +3,30 @@ using System.Collections;
 
 public class Item : MonoBehaviour 
 {
+	public enum Type { Game, Real };
+	[HideInInspector]
+	public Type m_type = Type.Game;
+
 	public GameObject m_gameWorldSprite;
 	public GameObject m_realWorldSprite;
 
+	protected virtual void StartVirtual () {}
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		m_realWorldSprite.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		StartVirtual();
 	}
 
-	void Collect()
+	void Collect(Player p)
 	{
-		printf.PrintPersistentMessage("item: " + name);
+		if(m_type == Type.Game)
+			CollectGame(p);
+		else
+			CollectReal(p);
 	}
+
+	protected virtual void CollectGame(Player player) {}
+	protected virtual void CollectReal(Player player) {}
 }
