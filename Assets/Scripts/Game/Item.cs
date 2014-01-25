@@ -15,4 +15,9 @@ public class Item : MonoBehaviour
 	void Update () {
 	
 	}
+
+	void Collect()
+	{
+		printf.PrintPersistentMessage("item: " + name);
+	}
 }

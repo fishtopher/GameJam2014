@@ -65,19 +65,19 @@ namespace InControl
 					Target = InputControlType.LeftStickY,
 					Source = "down up"
 				},
-				
-				new InputControlAnalogMapping()
-				{
-					Handle = "AD Keys",
-					Target = InputControlType.LeftStickX,
-					Source = "a d"
-				},
-				new InputControlAnalogMapping()
-				{
-					Handle = "WS Keys",
-					Target = InputControlType.LeftStickY,
-					Source = "s w"
-				}
+//				
+//				new InputControlAnalogMapping()
+//				{
+//					Handle = "AD Keys",
+//					Target = InputControlType.LeftStickX,
+//					Source = "a d"
+//				},
+//				new InputControlAnalogMapping()
+//				{
+//					Handle = "WS Keys",
+//					Target = InputControlType.LeftStickY,
+//					Source = "s w"
+//				}
 			};
 		}
 	}

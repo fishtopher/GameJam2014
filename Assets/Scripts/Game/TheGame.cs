@@ -21,25 +21,5 @@ public class TheGame : MonoBehaviour {
 		{
 			printf.PrintPersistentMessage("Start Pressed");
 		}
-		
-		if(InputManager.ActiveDevice.GetControl(InputControlType.Action1).WasPressed)	//space
-		{
-			printf.PrintPersistentMessage("Action1 Pressed");
-		}
-		
-		if(InputManager.ActiveDevice.GetControl(InputControlType.Action2).WasPressed)	//z
-		{
-			printf.PrintPersistentMessage("Action2 Pressed");
-		}
-		
-		if(InputManager.ActiveDevice.GetControl(InputControlType.Action3).WasPressed)	//x
-		{
-			printf.PrintPersistentMessage("Action3 Pressed");
-		}
-		
-		if(InputManager.ActiveDevice.GetControl(InputControlType.Action4).WasPressed)	//c
-		{
-			printf.PrintPersistentMessage("Action4 Pressed");
-		}
 	}
 }
