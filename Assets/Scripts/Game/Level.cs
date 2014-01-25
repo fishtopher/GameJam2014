@@ -15,17 +15,21 @@ public class Level : MonoBehaviour
 	public GameObject[] m_bgPrefabs;
 	public GameObject m_bgEndPrefab;
 
+	public float LaneYPos(int laneId)
+	{
+		float yMin = -(m_laneWidth + m_laneSpacing) * ((float)m_numLanes-1) * 0.5f;
+		return yMin + laneId * (m_laneWidth + m_laneSpacing);
+	}
 
 	// Use this for initialization
 	void Start () 
 	{
 		GameObject go;
 		float itemX = m_firstItem;
-		float yMin = -(m_laneWidth + m_laneSpacing) * ((float)m_numLanes-1) * 0.5f;
 		for(int i = 0; i < m_numItems; i++)
 		{
 			itemX += m_itemSpacing.RandomValue;
-			float ypos = yMin + Random.Range(0,m_numLanes) * (m_laneWidth + m_laneSpacing);
+			float ypos = LaneYPos(Random.Range(0,m_numLanes));
 			Vector3	p = new Vector3(itemX, ypos, 0);
 			Util.InstantiatePrefab( m_itemPrefabs[ Random.Range(0, m_itemPrefabs.Length) ], p); 
 		}
