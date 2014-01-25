@@ -38,7 +38,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb97b49e9658c47d6b4c8ceb15c231e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_laneWidth: .639999986
+  m_universe: 0
+  m_laneWidth: .699999988
+  m_laneHeight: .699999988
   m_laneSpacing: .319999993
   m_numLanes: 3
   m_numItems: 20
@@ -57,6 +59,8 @@ MonoBehaviour:
   - {fileID: 100000, guid: b6a2a155b6b0147aa8b3685aebb5e449, type: 2}
   m_bgEndPrefab: {fileID: 100002, guid: 0037d5bbd6cda4a618bae6c3fc1364d3, type: 2}
   m_endScene: {fileID: 0}
+  m_items: []
+  m_bgTiles: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
 	{
 		Instance = this;
 		StartCoroutine( Wait() );
+
+		Player.Instance.transform.localScale = Vector3.one; // Reset scale in case we were big when passing the previous level
 	}
 
 	public void Reset()

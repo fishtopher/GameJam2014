@@ -10,7 +10,7 @@ PlayerSettings:
   targetGlesGraphics: 1
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: GameJam2014
   productName: GameJam2014
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -26,7 +26,7 @@ PlayerSettings:
   m_UseDX11: 0
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
-  displayResolutionDialog: 1
+  displayResolutionDialog: 0
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
   allowedAutorotateToLandscapeRight: 1
@@ -41,7 +41,7 @@ PlayerSettings:
   Override IPod Music: 0
   Prepare IOS For Recording: 0
   enableHWStatistics: 1
-  usePlayerLog: 1
+  usePlayerLog: 0
   stripPhysics: 0
   forceSingleInstance: 0
   resizableWindow: 0
@@ -109,7 +109,11 @@ PlayerSettings:
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - m_Icon: {fileID: 0}
+      m_Size: 128
   m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}

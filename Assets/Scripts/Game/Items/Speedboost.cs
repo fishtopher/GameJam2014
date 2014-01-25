@@ -8,6 +8,7 @@ public class Speedboost : Item
 
 	protected override void CollectGame(Player player)
 	{
+		Player.Instance.GetComponent<Animator>().Play("fly");
 		StartCoroutine("GameFX", player);
 	}
 
@@ -16,7 +17,7 @@ public class Speedboost : Item
 		((Player)p).m_runSpeed *= m_speedBoost;
 		yield return new WaitForSeconds (m_duration);
 		((Player)p).m_runSpeed /= m_speedBoost;
-
+		Player.Instance.GetComponent<Animator>().Play("run");
 	}
 	
 	protected override void CollectReal(Player player)

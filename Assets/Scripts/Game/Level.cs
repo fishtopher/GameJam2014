@@ -6,7 +6,8 @@ public class Level : MonoBehaviour
 {
 	public Item.Type m_universe = Item.Type.Game;
 
-	public float m_laneWidth = 0.64f;
+	public float m_laneWidth = 0.7f;
+	public float m_laneHeight = 0.7f;
 	public float m_laneSpacing = 0.32f;
 	public int m_numLanes = 3;
 	public int m_numItems = 100;
@@ -26,11 +27,11 @@ public class Level : MonoBehaviour
 	//
 	float m_endPos;
 
-	public float LaneYPos(int laneId)
+	/*public float LaneYPos(int laneId)
 	{
 		float yMin = -(m_laneWidth + m_laneSpacing) * ((float)m_numLanes-1) * 0.5f;
 		return yMin + laneId * (m_laneWidth + m_laneSpacing);
-	}
+	}*/
 
 
 	//
@@ -79,12 +80,14 @@ public class Level : MonoBehaviour
 	void GenerateLevel()
 	{
 		GameObject go;
-		float itemX = m_firstItem;
+		float itemX = m_firstItem * m_laneWidth;
 		m_items = new GameObject[m_numItems];
 		for(int i = 0; i < m_numItems; i++)
 		{
 			itemX += m_itemSpacing.RandomValue;
-			float ypos = LaneYPos(Random.Range(0,m_numLanes));
+			//float ypos = LaneYPos(Random.Range(0,m_numLanes));
+			float ypos = Random.Range(0,m_numLanes) * m_laneHeight + m_laneHeight * -( Mathf.Ceil( (float) m_numLanes / 2 ) - 1);
+
 			Vector3	p = new Vector3(itemX, ypos, 0);
 			m_items[i] = Util.InstantiatePrefab( m_itemPrefabs[ Random.Range(0, m_itemPrefabs.Length) ], p);
 			Item item = m_items[i].GetComponent<Item>();
@@ -92,20 +95,30 @@ public class Level : MonoBehaviour
 		}
 		
 		m_bgTiles = new List<GameObject>();
-		float bgX = 0;
-		go = Util.InstantiatePrefab( m_bgStartPrefab,  new Vector3(0, 0, 2)); 
-		m_bgTiles.Add(go);
-		bgX += go.transform.localScale.x;
-		
-		while(bgX < (itemX + 5))
+
+		float bgY = m_laneHeight * -( Mathf.Ceil( (float) m_numLanes / 2 ) - 1);
+
+		for ( int i = 0; i < m_numLanes; ++i )
 		{
-			go = Util.InstantiatePrefab( m_bgPrefabs[ Random.Range(0, m_bgPrefabs.Length) ],  new Vector3(bgX, 0, 2)); 
+			float bgX = 0;
+			go = Util.InstantiatePrefab( m_bgStartPrefab,  new Vector3(0, bgY, 2)); 
 			m_bgTiles.Add(go);
-			bgX += go.transform.localScale.x;
+
+			bgX = go.transform.localScale.x;
+
+			while(bgX < (itemX + 5))
+			{
+				go = Util.InstantiatePrefab( m_bgPrefabs[ Random.Range(0, m_bgPrefabs.Length) ],  new Vector3(bgX, bgY, 2)); 
+				m_bgTiles.Add(go);
+				bgX += go.transform.localScale.x;
+			}
+
+			go = Util.InstantiatePrefab( m_bgEndPrefab,  new Vector3(bgX, bgY, 2));
+			m_bgTiles.Add(go);
+			m_endPos = bgX;
+
+			bgY += m_laneHeight;
 		}
-		go = Util.InstantiatePrefab( m_bgEndPrefab,  new Vector3(bgX, 0, 2)); 
-		m_bgTiles.Add(go);
-		m_endPos = bgX;
 	}
 
 	// Update is called once per frame
