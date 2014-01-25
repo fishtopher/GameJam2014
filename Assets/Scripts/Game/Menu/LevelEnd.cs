@@ -7,6 +7,9 @@ public class LevelEnd : MonoBehaviour {
 	void OnEnable () 
 	{
 		printf.PrintPersistentMessage("OVER");
+
+		Player.Instance.GetComponent<Animator>().Play("win");
+		StartCoroutine( Player.Instance.StopSpeed() );
 	}
 	
 	// Update is called once per frame

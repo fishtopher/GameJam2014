@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
 	
 	private bool isMovingVert = false;
 
-
-	public float m_runSpeed = 5;
+	private const float RUN_SPEED = 4;
+	public float m_runSpeed;
 	public float m_score = 0;
 	public float Score { 
 		get { return m_score; } 
@@ -30,21 +30,25 @@ public class Player : MonoBehaviour
 	void Awake () 
 	{
 		Instance = this;
-		StartCoroutine( Wait() );
-
-		Player.Instance.transform.localScale = Vector3.one; // Reset scale in case we were big when passing the previous level
+		m_runSpeed = 0;
+		StartCoroutine( Wait(0.5f) );
 	}
 
 	public void Reset()
 	{
 		m_score = 0;
 		transform.position = Vector3.zero;
+		Player.Instance.transform.localScale = Vector3.one; // Reset scale in case we were big when passing the previous level
+
+		m_runSpeed = 0;
+		StartCoroutine( Wait(1.5f) );
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		Vector3 movement = new Vector3(InputManager.ActiveDevice.LeftStickX * m_runSpeed, 0, 0) * Clock.dt;
+		//Vector3 movement = new Vector3(InputManager.ActiveDevice.LeftStickX * m_runSpeed, 0, 0) * Clock.dt;
+		Vector3 movement = Vector3.right * m_runSpeed * Clock.dt;
 		transform.position += movement;
 
 		if ( !isMovingVert ) {
@@ -114,10 +118,18 @@ public class Player : MonoBehaviour
 		col.gameObject.SendMessage("Collect", this);
 	}
 
-	// FOR TESTING
-	private IEnumerator Wait() {
-		yield return new WaitForSeconds(1.0f);
+	private IEnumerator Wait( float duration ) {
+		isMovingVert = true;
+		yield return new WaitForSeconds(duration);
+		isMovingVert = false;
 		Animator playerAnim = this.GetComponent<Animator>();
 		playerAnim.Play("run");
+		m_runSpeed = RUN_SPEED;
+	}
+
+	public IEnumerator StopSpeed() {
+		isMovingVert = true;
+		yield return new WaitForSeconds(0.2f);
+		m_runSpeed = 0;
 	}
 }
