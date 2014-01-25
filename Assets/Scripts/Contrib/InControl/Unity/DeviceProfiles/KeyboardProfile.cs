@@ -33,22 +33,22 @@ namespace InControl
 				},
 				new InputControlButtonMapping()
 				{
-					Handle = "E Key",
+					Handle = "Z Key",
 					Target = InputControlType.Action2,
-					Source = "e"
+					Source = "z"
 				},
-//				new InputControlButtonMapping()
-//				{
-//					Handle = "S Key",
-//					Target = InputControlType.Action3,
-//					Source = "s"
-//				},
-//				new InputControlButtonMapping()
-//				{
-//					Handle = "D Key",
-//					Target = InputControlType.Action4,
-//					Source = "d"
-//				}
+				new InputControlButtonMapping()
+				{
+					Handle = "X Key",
+					Target = InputControlType.Action3,
+					Source = "x"
+				},
+				new InputControlButtonMapping()
+				{
+					Handle = "C Key",
+					Target = InputControlType.Action4,
+					Source = "c"
+				}
 			};
 
 			AnalogMappings = new InputControlAnalogMapping[]
