@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: idle
+  m_Name: pickup
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -18,9 +18,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300004, guid: 13e08fe59b34f4c4d9e37f6d9e32b371, type: 3}
+      value: {fileID: 21300008, guid: 13e08fe59b34f4c4d9e37f6d9e32b371, type: 3}
     - time: 1
-      value: {fileID: 21300004, guid: 13e08fe59b34f4c4d9e37f6d9e32b371, type: 3}
+      value: {fileID: 21300008, guid: 13e08fe59b34f4c4d9e37f6d9e32b371, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
