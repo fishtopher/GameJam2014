@@ -15,6 +15,11 @@ public class Level : MonoBehaviour
 	public GameObject[] m_bgPrefabs;
 	public GameObject m_bgEndPrefab;
 
+	public GameObject m_endScene;
+
+	//
+	float m_endPos;
+
 	public float LaneYPos(int laneId)
 	{
 		float yMin = -(m_laneWidth + m_laneSpacing) * ((float)m_numLanes-1) * 0.5f;
@@ -38,18 +43,21 @@ public class Level : MonoBehaviour
 		go = Util.InstantiatePrefab( m_bgStartPrefab,  new Vector3(0, 0, 2)); 
 		bgX += go.transform.localScale.x;
 
-		while(bgX < itemX)
+		while(bgX < (itemX + 5))
 		{
 			go = Util.InstantiatePrefab( m_bgPrefabs[ Random.Range(0, m_bgPrefabs.Length) ],  new Vector3(bgX, 0, 2)); 
 			bgX += go.transform.localScale.x;
 		}
 		Util.InstantiatePrefab( m_bgEndPrefab,  new Vector3(bgX, 0, 2)); 
-		
+		m_endPos = bgX;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		if(Player.Instance.transform.position.x > m_endPos)
+		{
+			m_endScene.SetActive(true);
+		}
 	}
 }
