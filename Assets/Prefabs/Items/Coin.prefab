@@ -70,7 +70,7 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .249966502, y: .249966502, z: .249966502}
+  m_LocalScale: {x: .75, y: .75, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
 --- !u!4 &400004
@@ -107,9 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd8131bcd8514c24a0f3c208b699d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 0
   m_gameWorldSprite: {fileID: 100004}
   m_realWorldSprite: {fileID: 100002}
+  m_ItemGetTextMesh: {fileID: 100000, guid: 748a9b8b77e062a47addea50b92c53ec, type: 2}
+  gameValue: 100
+  realValue: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

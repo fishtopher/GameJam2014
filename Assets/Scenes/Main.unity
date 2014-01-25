@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_runSpeed: 5
   m_score: 0
+  m_numCollectedSteroids: 0
   m_scoreText: {fileID: 1738577888}
 --- !u!95 &56639593
 Animator:
@@ -1564,8 +1565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb97b49e9658c47d6b4c8ceb15c231e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_universe: 0
-  m_laneWidth: .5
+  m_universe: 1
+  m_laneWidth: .699999988
   m_laneHeight: .699999988
   m_laneSpacing: 0
   m_numLanes: 3
@@ -3049,11 +3050,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e45a7a35c511b45acba228ee136de190, type: 2}
       propertyPath: m_universe
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: e45a7a35c511b45acba228ee136de190, type: 2}
-      propertyPath: m_laneWidth
-      value: .5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e45a7a35c511b45acba228ee136de190, type: 2}
@@ -3160,8 +3157,8 @@ Transform:
   m_PrefabInternal: {fileID: 130140544}
   m_GameObject: {fileID: 1073922362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .514618993, y: -.620775223, z: 0}
-  m_LocalScale: {x: .25, y: .25, z: .25}
+  m_LocalPosition: {x: .550000012, y: -.400000006, z: 0}
+  m_LocalScale: {x: .200000003, y: .200000003, z: .25}
   m_Children: []
   m_Father: {fileID: 1289763124}
 --- !u!102 &1073922364

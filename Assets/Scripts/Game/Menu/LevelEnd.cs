@@ -8,7 +8,13 @@ public class LevelEnd : MonoBehaviour {
 	{
 		printf.PrintPersistentMessage("OVER");
 
-		Player.Instance.GetComponent<Animator>().Play("win");
+		// Drug testing!
+		if ( Player.Instance.NumCollectedSteroids > 0 ) {
+			Player.Instance.GetComponent<Animator>().Play("fall");
+		}
+		else {
+			Player.Instance.GetComponent<Animator>().Play("win");
+		}
 		StartCoroutine( Player.Instance.StopSpeed() );
 	}
 	

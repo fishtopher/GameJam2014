@@ -19,6 +19,7 @@ public class Item : MonoBehaviour
 
 	public GameObject m_gameWorldSprite;
 	public GameObject m_realWorldSprite;
+	public GameObject m_ItemGetTextMesh;
 
 	protected virtual void AwakeVirtual () {}
 

@@ -11,7 +11,12 @@ public class Player : MonoBehaviour
 	private const float MOVE_DISTANCE = 0.64f;
 	private const float MOVE_SPEED_VERT = 2.0f;
 	
-	private bool isMovingVert = false;
+	private bool m_isMovingVert = false;
+	private bool m_isStunned = false;
+	public bool IsStunned {
+		get { return IsStunned; }
+		set { m_isStunned = value; }
+	}
 
 	private const float RUN_SPEED = 4;
 	public float m_runSpeed;
@@ -24,6 +29,14 @@ public class Player : MonoBehaviour
 			m_scoreText.text = string.Format("{0:000}", m_score); 
 		}
 	}
+	public int m_numCollectedSteroids;
+	public int NumCollectedSteroids { 
+		get { return m_numCollectedSteroids; } 
+		set 
+		{
+			m_numCollectedSteroids = value; 
+		}
+	}
 	public TextMesh m_scoreText;
 
 	// Use this for initialization
@@ -31,6 +44,7 @@ public class Player : MonoBehaviour
 	{
 		Instance = this;
 		m_runSpeed = 0;
+		m_numCollectedSteroids = 0;
 		StartCoroutine( Wait(0.5f) );
 	}
 
@@ -41,6 +55,7 @@ public class Player : MonoBehaviour
 		Player.Instance.transform.localScale = Vector3.one; // Reset scale in case we were big when passing the previous level
 
 		m_runSpeed = 0;
+		m_numCollectedSteroids = 0;
 		StartCoroutine( Wait(1.5f) );
 	}
 
@@ -51,7 +66,7 @@ public class Player : MonoBehaviour
 		Vector3 movement = Vector3.right * m_runSpeed * Clock.dt;
 		transform.position += movement;
 
-		if ( !isMovingVert ) {
+		if ( !m_isMovingVert && !m_isStunned) {
 			CheckControlPressed();
 		}
 	}
@@ -62,12 +77,12 @@ public class Player : MonoBehaviour
 		
 		if ( Input.GetKeyDown( KeyCode.UpArrow ) && this.transform.position.y < Y_POS_MAX )
 		{
-			isMovingVert = true;
+			m_isMovingVert = true;
 			StartCoroutine( MoveUp( currentPos + MOVE_DISTANCE ) );
 		}
 		else if ( Input.GetKeyDown( KeyCode.DownArrow ) && this.transform.position.y > Y_POS_MIN )
 		{
-			isMovingVert = true;
+			m_isMovingVert = true;
 			StartCoroutine( MoveDown( currentPos - MOVE_DISTANCE ) );
 		}
 	}
@@ -85,7 +100,7 @@ public class Player : MonoBehaviour
 		}
 		else
 		{
-			isMovingVert = false;
+			m_isMovingVert = false;
 		}
 	}
 
@@ -98,7 +113,9 @@ public class Player : MonoBehaviour
 		}
 		
 		// Continue movement if key is held down
-		CheckControlDown();
+		if ( !m_isStunned ) {
+			CheckControlDown();
+		}
 	}
 	
 	private IEnumerator MoveDown( float destination )
@@ -110,7 +127,9 @@ public class Player : MonoBehaviour
 		}
 		
 		// Continue movement if key is held down
-		CheckControlDown();
+		if ( !m_isStunned ) {
+			CheckControlDown();
+		}
 	}
 
 	void OnTriggerEnter(Collider col)
@@ -119,16 +138,16 @@ public class Player : MonoBehaviour
 	}
 
 	private IEnumerator Wait( float duration ) {
-		isMovingVert = true;
+		m_isMovingVert = true;
 		yield return new WaitForSeconds(duration);
-		isMovingVert = false;
+		m_isMovingVert = false;
 		Animator playerAnim = this.GetComponent<Animator>();
 		playerAnim.Play("run");
 		m_runSpeed = RUN_SPEED;
 	}
 
 	public IEnumerator StopSpeed() {
-		isMovingVert = true;
+		m_isMovingVert = true;
 		yield return new WaitForSeconds(0.2f);
 		m_runSpeed = 0;
 	}
