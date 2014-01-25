@@ -26,11 +26,11 @@ public class Player : MonoBehaviour {
 		transform.position += movement;
 
 		if ( !isMovingVert ) {
-			CheckControls();
+			CheckControlPressed();
 		}
 	}
 
-	private void CheckControls()
+	private void CheckControlPressed()
 	{
 		float currentPos = this.transform.position.y;
 		
@@ -46,6 +46,23 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	private void CheckControlDown()
+	{
+		// Continue movement if key is held down
+		if ( Input.GetKey( KeyCode.UpArrow ) && this.transform.position.y < Y_POS_MAX )
+		{
+			StartCoroutine( MoveUp( this.transform.position.y + MOVE_DISTANCE ) );
+		}
+		else if ( Input.GetKey( KeyCode.DownArrow ) && this.transform.position.y > Y_POS_MIN )
+		{
+			StartCoroutine( MoveDown( this.transform.position.y - MOVE_DISTANCE ) );
+		}
+		else
+		{
+			isMovingVert = false;
+		}
+	}
+
 	private IEnumerator MoveUp( float destination )
 	{
 		while ( this.transform.position.y < destination )
@@ -54,17 +71,8 @@ public class Player : MonoBehaviour {
 			yield return 0;
 		}
 		
-		isMovingVert = false;
-		
 		// Continue movement if key is held down
-		if ( Input.GetKey( KeyCode.UpArrow ) && this.transform.position.y < Y_POS_MAX )
-		{
-			StartCoroutine( MoveUp( this.transform.position.y + MOVE_DISTANCE ) );
-		}
-		else
-		{
-			isMovingVert = false;
-		}
+		CheckControlDown();
 	}
 	
 	private IEnumerator MoveDown( float destination )
@@ -76,14 +84,7 @@ public class Player : MonoBehaviour {
 		}
 		
 		// Continue movement if key is held down
-		if ( Input.GetKey( KeyCode.DownArrow ) && this.transform.position.y > Y_POS_MIN )
-		{
-			StartCoroutine( MoveDown( this.transform.position.y - MOVE_DISTANCE ) );
-		}
-		else
-		{
-			isMovingVert = false;
-		}
+		CheckControlDown();
 	}
 
 	void OnTriggerEnter(Collider col)
