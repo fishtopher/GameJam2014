@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{82259D58-C273-2045-8BB6-9780A0B30732}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_3;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Scripts\Contrib\BigBit\MapFile\MapData.cs" />
+     <Compile Include="Assets\Scripts\Contrib\BigBit\MapFile\MapLayer.cs" />
+     <Compile Include="Assets\Scripts\Contrib\BigBit\MapFile\rcProxyLayer.cs" />
+     <Compile Include="Assets\Scripts\Contrib\BigBit\MapFile\rcRenderSettingsFixup.cs" />
+     <Compile Include="Assets\Scripts\Contrib\BigBit\MapFile\rcShell.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Debug\Logger.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\InputControl.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\InputControlMapping.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\InputControlState.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\InputControlType.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\InputDevice.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\InputDeviceManager.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\DeviceProfiles\KeyboardProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\DeviceProfiles\OuyaProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\DeviceProfiles\Playstation3MacProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\DeviceProfiles\Playstation3OuyaProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\DeviceProfiles\Playstation3WinProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\DeviceProfiles\Xbox360MacProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\DeviceProfiles\Xbox360OuyaProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\DeviceProfiles\Xbox360WinProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\UnityInputDevice.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\UnityInputDeviceManager.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\UnityInputDeviceProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\InControl\Unity\UnknownDeviceProfile.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\OVRImageEffects\OVRImageEffectBase.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\OVRImageEffects\OVRLensCorrection.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRCamera.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRCameraController.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRCameraStripped.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRComponent.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRCrosshair.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRDevice.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRGUI.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRGamepadController.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRMagCalibration.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRMainMenu.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRMessenger.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRPlayerController.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRPresetManager.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Oculus\Scripts\OVRUtils.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Animation\AnimationScaler.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Audio\AudioControl.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Audio\ImpactAudio.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Camera\CameraSwitcher.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Camera\MouseLookCamera.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Camera\OculusCameraSwitcher.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Camera\SmoothFollowCam.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Camera\SmoothLookatCam.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Physics\AnyObjectSensor.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Physics\CenterOfMassSetter.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Physics\CollisionObjectHider.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Physics\Detatchable.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Physics\NHitWonder.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Physics\ObjectSensor.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Physics\PosedObject.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Physics\Sleeper.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Spline\Spline.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Spline\SplineFollower.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Spline\SplineMesh.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Spline\SplineMirroree.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Spline\SplinePlopper.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Spline\SplinePlopper_EditorOnly.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Spline\SplinePoint.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Spline\Spline_EditorOnly.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Trigger\PlayerTransformMatcher.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Trigger\ToggleActiveTrigger.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\CircularPool.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\Clock.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\Debug2D.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\Extensions.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\FPSCounter.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\GroundAlignment.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\HSVColour.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\Line2D.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\LockTransform.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\LookAt.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\MeshGroupManager.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\Names.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\ObjectPool.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\Placeholder.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\PointAt.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\ProceduralMesh.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\Reparenter.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\Resettable.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\ScaleVariation.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\StayRelativeToParent.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\TrackedPool.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\Util.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\VMath.cs" />
+     <Compile Include="Assets\Scripts\Contrib\Vitei Unity\Util\printf.cs" />
+     <None Include="Assets\Scripts\Contrib\Oculus\OVRImageEffects\OVRLensCorrection_CA.shader" />
+     <None Include="Assets\Scripts\Contrib\Oculus\OVRImageEffects\OVRLensCorrection.shader" />
+     <None Include="Assets\Scripts\Contrib\Oculus\Shaders\OVRGUIShader.shader" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

@@ -1,0 +1,111 @@
+-debug
+-target:library
+-nowarn:0169
+-out:'Temp/Assembly-CSharp.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
+-define:UNITY_STANDALONE_OSX
+-define:ENABLE_MICROPHONE
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_AUDIO_FMOD
+-define:UNITY_STANDALONE
+-define:ENABLE_MONO
+-define:ENABLE_SPRITES
+-define:ENABLE_TERRAIN
+-define:ENABLE_GENERICS
+-define:ENABLE_SUBSTANCE
+-define:INCLUDE_WP8SUPPORT
+-define:ENABLE_MOVIES
+-define:ENABLE_WWW
+-define:ENABLE_IMAGEEFFECTS
+-define:INCLUDE_METROSUPPORT
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_NETWORK
+-define:ENABLE_PHYSICS
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_2D_PHYSICS
+-define:ENABLE_GAMECENTER
+-define:ENABLE_SHADOWS
+-define:ENABLE_AUDIO
+-define:ENABLE_NAVMESH_CARVING
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:UNITY_4_3_3
+-define:UNITY_4_3
+-define:ENABLE_PROFILER
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_OSX
+'Assets/Scripts/Contrib/InControl/Debug/Logger.cs'
+'Assets/Scripts/Contrib/InControl/InputControl.cs'
+'Assets/Scripts/Contrib/InControl/InputControlMapping.cs'
+'Assets/Scripts/Contrib/InControl/InputControlState.cs'
+'Assets/Scripts/Contrib/InControl/InputControlType.cs'
+'Assets/Scripts/Contrib/InControl/InputDevice.cs'
+'Assets/Scripts/Contrib/InControl/InputDeviceManager.cs'
+'Assets/Scripts/Contrib/InControl/InputManager.cs'
+'Assets/Scripts/Contrib/InControl/Unity/DeviceProfiles/KeyboardProfile.cs'
+'Assets/Scripts/Contrib/InControl/Unity/DeviceProfiles/OuyaProfile.cs'
+'Assets/Scripts/Contrib/InControl/Unity/DeviceProfiles/Playstation3MacProfile.cs'
+'Assets/Scripts/Contrib/InControl/Unity/DeviceProfiles/Playstation3OuyaProfile.cs'
+'Assets/Scripts/Contrib/InControl/Unity/DeviceProfiles/Playstation3WinProfile.cs'
+'Assets/Scripts/Contrib/InControl/Unity/DeviceProfiles/Xbox360MacProfile.cs'
+'Assets/Scripts/Contrib/InControl/Unity/DeviceProfiles/Xbox360OuyaProfile.cs'
+'Assets/Scripts/Contrib/InControl/Unity/DeviceProfiles/Xbox360WinProfile.cs'
+'Assets/Scripts/Contrib/InControl/Unity/UnityInputDevice.cs'
+'Assets/Scripts/Contrib/InControl/Unity/UnityInputDeviceManager.cs'
+'Assets/Scripts/Contrib/InControl/Unity/UnityInputDeviceProfile.cs'
+'Assets/Scripts/Contrib/InControl/Unity/UnknownDeviceProfile.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Animation/AnimationScaler.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Audio/AudioControl.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Audio/ImpactAudio.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Camera/CameraSwitcher.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Camera/MouseLookCamera.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Camera/OculusCameraSwitcher.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Camera/SmoothFollowCam.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Camera/SmoothLookatCam.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Physics/AnyObjectSensor.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Physics/CenterOfMassSetter.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Physics/CollisionObjectHider.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Physics/Detatchable.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Physics/NHitWonder.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Physics/ObjectSensor.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Physics/PosedObject.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Physics/Sleeper.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Spline/Spline.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Spline/SplineFollower.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Spline/SplineMesh.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Spline/SplineMirroree.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Spline/SplinePlopper.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Spline/SplinePlopper_EditorOnly.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Spline/SplinePoint.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Spline/Spline_EditorOnly.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Trigger/PlayerTransformMatcher.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Trigger/ToggleActiveTrigger.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/CircularPool.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/Clock.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/Debug2D.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/Extensions.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/FPSCounter.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/GroundAlignment.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/HSVColour.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/Line2D.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/LockTransform.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/LookAt.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/MeshGroupManager.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/Names.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/ObjectPool.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/Placeholder.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/PointAt.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/ProceduralMesh.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/Reparenter.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/Resettable.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/ScaleVariation.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/StateMachine.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/StayRelativeToParent.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/TrackedPool.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/Util.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/VMath.cs'
+'Assets/Scripts/Contrib/Vitei Unity/Util/printf.cs'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
