@@ -4,19 +4,29 @@ using System.Collections;
 public class Item : MonoBehaviour 
 {
 	public enum Type { Game, Real };
-	[HideInInspector]
-	public Type m_type = Type.Game;
+	Type m_type = Type.Game;
+	public Type MyType
+	{
+		get {return m_type;}
+		set 
+		{
+			m_type = value;
+			m_gameWorldSprite.SetActive( m_type == Type.Game );
+			m_realWorldSprite.SetActive( m_type != Type.Game );
+		}
+	}
+
 
 	public GameObject m_gameWorldSprite;
 	public GameObject m_realWorldSprite;
 
-	protected virtual void StartVirtual () {}
+	protected virtual void AwakeVirtual () {}
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		m_realWorldSprite.SetActive(false);
-		StartVirtual();
+		AwakeVirtual();
 	}
 
 	void Collect(Player p)
@@ -25,6 +35,9 @@ public class Item : MonoBehaviour
 			CollectGame(p);
 		else
 			CollectReal(p);
+
+		m_gameWorldSprite.SetActive(false);
+		m_realWorldSprite.SetActive(false);
 	}
 
 	protected virtual void CollectGame(Player player) {}

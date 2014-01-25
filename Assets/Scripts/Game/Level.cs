@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Level : MonoBehaviour 
 {
+	public Item.Type m_universe = Item.Type.Game;
+
 	public float m_laneWidth = 0.64f;
 	public float m_laneSpacing = 0.32f;
 	public int m_numLanes = 3;
@@ -41,9 +43,7 @@ public class Level : MonoBehaviour
 
 		if(p)
 		{
-			p.gameObject.transform.position = Vector3.zero;
-	
-			printf.Print("found dude");
+			p.Reset();
 		}
 	}
 
@@ -86,7 +86,9 @@ public class Level : MonoBehaviour
 			itemX += m_itemSpacing.RandomValue;
 			float ypos = LaneYPos(Random.Range(0,m_numLanes));
 			Vector3	p = new Vector3(itemX, ypos, 0);
-			m_items[i] = Util.InstantiatePrefab( m_itemPrefabs[ Random.Range(0, m_itemPrefabs.Length) ], p); 
+			m_items[i] = Util.InstantiatePrefab( m_itemPrefabs[ Random.Range(0, m_itemPrefabs.Length) ], p);
+			Item item = m_items[i].GetComponent<Item>();
+			item.MyType = m_universe;
 		}
 		
 		m_bgTiles = new List<GameObject>();
