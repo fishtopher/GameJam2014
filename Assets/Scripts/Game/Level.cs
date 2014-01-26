@@ -96,7 +96,9 @@ public class Level : MonoBehaviour
 		
 		for ( int i = 0; i < m_numLanes; ++i )
 		{
-			go = Util.InstantiatePrefab( m_bgPrefabs[0],  new Vector3(bgX, bgY, 2)); 
+			go = Util.InstantiatePrefab( m_bgPrefabs[0],  new Vector3(bgX, bgY, 2));
+			go.GetComponent<DualWorldGFX>().MyType = m_universe;
+
 			m_bgTiles.Add(go);
 			bgY += m_laneHeight;
 		}
@@ -110,7 +112,8 @@ public class Level : MonoBehaviour
 		
 		for ( int i = 0; i < m_numLanes; ++i )
 		{
-			go = Util.InstantiatePrefab( specialTile,  new Vector3(bgX, bgY, 2)); 
+			go = Util.InstantiatePrefab( specialTile,  new Vector3(bgX, bgY, 2));
+			go.GetComponent<DualWorldGFX>().MyType = m_universe;
 			m_bgTiles.Add(go);
 			bgY += m_laneHeight;
 		}
@@ -154,6 +157,17 @@ public class Level : MonoBehaviour
 	
 	void GenerateLevel()
 	{
+		if(m_universe == Item.Type.Game)
+		{
+			m_grass.material.color = m_grassGameColour;
+			m_sky.material.color = m_skyGameColour;
+		}
+		else
+		{
+			m_grass.material.color = m_grassRealColour;
+			m_sky.material.color = m_skyRealColour;
+		}
+
 		GameObject go = new GameObject();
 		
 		List< int[] > itemSpawnList = new List< int[] >();
@@ -222,7 +236,6 @@ public class Level : MonoBehaviour
 		}
 		
 		go = SpawnSpecialColumn( bgX, m_bgEndPrefab );
-		go.GetComponent<DualWorldGFX>().MyType = m_universe;
 		bgX += go.transform.localScale.x;
 		m_endPos = bgX;
 
