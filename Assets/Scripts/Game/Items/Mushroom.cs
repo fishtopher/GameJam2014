@@ -8,7 +8,7 @@ public class Mushroom : Item
 
 	protected override void CollectGame(Player player)
 	{
-		Player.Instance.transform.localScale = Vector3.one * 2;
+		Player.Instance.ScaleSprite(2);
 
 		SoundManager.PlaySound("powerup");
 
@@ -30,7 +30,7 @@ public class Mushroom : Item
 	IEnumerator RealFX(Player p)
 	{
 		((Player)p).m_runSpeed = 0;
-		Player.Instance.GetComponent<Animator>().Play("stun");
+		Player.Instance.PlayAnimation("stun");
 
 		((Player)p).IsStunned = true;
 		yield return new WaitForSeconds (m_realStopTime);
@@ -38,6 +38,6 @@ public class Mushroom : Item
 		((Player)p).CheckControlDown();
 
 		((Player)p).m_runSpeed = m_realSpeedPrePickup;
-		Player.Instance.GetComponent<Animator>().Play("run");
+		Player.Instance.PlayAnimation("run");
 	}
 }

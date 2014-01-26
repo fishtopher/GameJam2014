@@ -32,7 +32,7 @@ public class Coin : Item
 	IEnumerator RealFX(Player p)
 	{
 		((Player)p).m_runSpeed = 0;
-		Player.Instance.GetComponent<Animator>().Play("pickup");
+		Player.Instance.PlayAnimation("pickup");
 
 		((Player)p).IsStunned = true;
 		yield return new WaitForSeconds (m_realStopTime);
@@ -41,6 +41,6 @@ public class Coin : Item
 		Player.Instance.Score += realValue;
 		
 		((Player)p).m_runSpeed = m_realSpeedPrePickup;
-		Player.Instance.GetComponent<Animator>().Play("run");
+		Player.Instance.PlayAnimation("run");
 	}
 }

@@ -12,10 +12,11 @@ public class LevelEnd : MonoBehaviour {
 
 		// Drug testing!
 		if ( Player.Instance.NumCollectedSteroids > 0 ) {
+			Player.Instance.PlayAnimation("fall");
 			StartCoroutine( FailEndActions() );
 		}
 		else {
-			Player.Instance.GetComponent<Animator>().Play("win");
+			Player.Instance.PlayAnimation("win");
 			SoundManager.PlaySound("win");
 		}
 		StartCoroutine( Player.Instance.StopSpeed() );
