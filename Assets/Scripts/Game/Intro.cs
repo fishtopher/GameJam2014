@@ -11,7 +11,6 @@ public class Intro : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
@@ -24,6 +23,16 @@ public class Intro : MonoBehaviour {
 	public void ScreenIsCovered()
 	{
 		
+	}
+
+	public void PlaySound()
+	{
+		SoundManager.PlaySound("countdown");
+	}
+
+	public void PlayStartSound()
+	{
+		SoundManager.PlaySound("start");
 	}
 
 	public void ScreenIsUncovered()

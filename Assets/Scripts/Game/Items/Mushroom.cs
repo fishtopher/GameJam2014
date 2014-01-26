@@ -10,6 +10,8 @@ public class Mushroom : Item
 	{
 		Player.Instance.ScaleSprite(2);
 
+		SoundManager.PlaySound("powerup");
+
 		GameObject collectText = GameObject.Instantiate( m_ItemGetTextMesh, Player.Instance.transform.position, Quaternion.identity ) as GameObject;
 		collectText.GetComponent<ItemGetText>().Initialize( "SUPER POWER!", Color.white );
 	}
@@ -18,6 +20,8 @@ public class Mushroom : Item
 	{
 		GameObject collectText = GameObject.Instantiate( m_ItemGetTextMesh, Player.Instance.transform.position, Quaternion.identity ) as GameObject;
 		collectText.GetComponent<ItemGetText>().Initialize( "HALLUCINATION!", Color.white );
+
+		SoundManager.PlaySound("stun");
 
 		m_realSpeedPrePickup = player.m_runSpeed;
 		StartCoroutine("RealFX", player);

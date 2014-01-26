@@ -10,6 +10,7 @@ public class Speedboost : Item
 
 	protected override void CollectGame(Player player)
 	{
+		SoundManager.PlaySound("powerup2");
 		Player.Instance.PlayAnimation("fly");
 		StartCoroutine("GameFX", player);
 
@@ -32,6 +33,7 @@ public class Speedboost : Item
 
 		GameObject collectText = GameObject.Instantiate( m_ItemGetTextMesh, Player.Instance.transform.position, Quaternion.identity ) as GameObject;
 		collectText.GetComponent<ItemGetText>().Initialize( "STEROIDS +1!", Color.white );
+		SoundManager.PlaySound("powerup2");
 		
 		Player.Instance.NumCollectedSteroids++;
 	}

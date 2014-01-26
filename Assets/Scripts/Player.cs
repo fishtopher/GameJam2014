@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using InControl;
 
@@ -60,8 +60,8 @@ public class Player : MonoBehaviour
 	{
 		Instance = this;
 		m_runSpeed = 0;
-		m_numCollectedSteroids = 0;
-		StartCoroutine( Wait(0.5f) );
+		//m_numCollectedSteroids = 0;
+		//StartCoroutine( Wait(0.5f) );
 	}
 
 	public void Reset()
@@ -175,6 +175,8 @@ public class Player : MonoBehaviour
 		PlayAnimation("run");
 		m_runSpeed = RUN_SPEED;
 		m_running = true;
+
+		SoundManager.PlaySound("song1");
 	}
 
 	public void StopRunning()
@@ -230,7 +232,6 @@ public class Player : MonoBehaviour
 
 	public void ScaleSprite(float amt)
 	{
-		printf.PrintPersistentMessage("scale " + amt);
 		m_sprite.transform.localScale = Vector3.one * amt;
 		m_sprite.transform.localPosition = new Vector3(0, amt / 8.0f, 0);
 

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using InControl;
 
@@ -28,6 +28,7 @@ public class LevelEnd : MonoBehaviour
 			m_message.text = "LIFE IS THIS FOREVER";
 		}
 
+		SoundManager.Stop("song1");
 
 		// Drug testing!
 		if ( Player.Instance.NumCollectedSteroids > 0 ) 
@@ -36,11 +37,13 @@ public class LevelEnd : MonoBehaviour
 			m_headline.text = "LOSER";
 			m_message.text = "WINNERS DON'T DO DRUGS";
 
+			StartCoroutine( FailEndActions() );
 		}
 		else 
 		{
 			Player.Instance.PlayAnimation("win");
 			m_headline.text = "WINNER";
+			SoundManager.PlaySound("win");
 		}
 
 		Player.Instance.StopRunning();
@@ -56,5 +59,14 @@ public class LevelEnd : MonoBehaviour
 			TheGame.Instance.PlayIntro();
 		}
 	
+	}
+
+	IEnumerator FailEndActions()
+	{
+		Player.Instance.GetComponent<Animator>().Play("fall");
+		SoundManager.PlaySound("fall");
+
+		yield return new WaitForSeconds(1.0f);
+		SoundManager.PlaySound("boo");
 	}
 }
