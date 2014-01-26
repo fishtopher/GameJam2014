@@ -10,7 +10,7 @@ public class Speedboost : Item
 
 	protected override void CollectGame(Player player)
 	{
-		Player.Instance.GetComponent<Animator>().Play("fly");
+		Player.Instance.PlayAnimation("fly");
 		StartCoroutine("GameFX", player);
 
 		GameObject collectText = GameObject.Instantiate( m_ItemGetTextMesh, Player.Instance.transform.position, Quaternion.identity ) as GameObject;
@@ -22,7 +22,7 @@ public class Speedboost : Item
 		((Player)p).m_runSpeed *= m_speedBoost;
 		yield return new WaitForSeconds (m_duration);
 		((Player)p).m_runSpeed /= m_speedBoost;
-		Player.Instance.GetComponent<Animator>().Play("run");
+		Player.Instance.PlayAnimation("run");
 	}
 	
 	protected override void CollectReal(Player player)
@@ -39,7 +39,7 @@ public class Speedboost : Item
 	IEnumerator RealFX(Player p)
 	{
 		((Player)p).m_runSpeed = 0;
-		Player.Instance.GetComponent<Animator>().Play("pickup");
+		Player.Instance.PlayAnimation("pickup");
 		
 		((Player)p).IsStunned = true;
 		yield return new WaitForSeconds (m_realStopTime);
@@ -48,6 +48,6 @@ public class Speedboost : Item
 
 		((Player)p).m_runSpeed = m_realSpeedPrePickup * 1.5f;
 
-		Player.Instance.GetComponent<Animator>().Play("run");
+		Player.Instance.PlayAnimation("run");
 	}
 }

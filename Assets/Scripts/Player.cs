@@ -42,7 +42,11 @@ public class Player : MonoBehaviour
 			m_numCollectedSteroids = value; 
 		}
 	}
+
+	public GameObject m_sprite;
 	public TextMesh m_scoreText;
+
+
 
 	// Use this for initialization
 	void Awake () 
@@ -148,8 +152,7 @@ public class Player : MonoBehaviour
 		m_isMovingVert = true;
 		yield return new WaitForSeconds(duration);
 		m_isMovingVert = false;
-		Animator playerAnim = this.GetComponent<Animator>();
-		playerAnim.Play("run");
+		PlayAnimation("run");
 		m_runSpeed = RUN_SPEED;
 	}
 
@@ -157,5 +160,11 @@ public class Player : MonoBehaviour
 		m_isMovingVert = true;
 		yield return new WaitForSeconds(0.2f);
 		m_runSpeed = 0;
+	}
+
+	public void PlayAnimation(string animName)
+	{
+		Animator playerAnim = m_sprite.GetComponent<Animator>();
+		playerAnim.Play(animName);
 	}
 }
