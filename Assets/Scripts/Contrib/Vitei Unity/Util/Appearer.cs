@@ -11,6 +11,7 @@ public class Appearer : MonoBehaviour {
 	public enum State { Appear, Visible, Disappear, Hidden };
 	public State m_initialState = State.Appear;
 	public float m_timer = 0;
+	public float m_initialTimer = 0;
 	float m_progress = 0;
 	Vector3 m_targetScale;
 	
@@ -23,18 +24,25 @@ public class Appearer : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
+		m_initialTimer = m_timer;
+
 		m_targetScale = transform.localScale;
-		transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
 		
 		m_sm = new StateMachine(typeof(State));
 		m_sm.AddState((int)State.Appear, UpdateAppear);
 		m_sm.AddState((int)State.Visible, UpdateVisible);
 		m_sm.AddState((int)State.Disappear, UpdateDisappear);
 		m_sm.AddState((int)State.Hidden, UpdateHidden);
-		m_sm.State = (int)m_initialState;
-		
+		m_sm.State = (int)m_initialState;	
 	}
-	
+
+	void OnEnable()
+	{
+		m_timer = m_initialTimer;
+		transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
+		m_initialState = State.Appear;
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{

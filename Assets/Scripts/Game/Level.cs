@@ -34,6 +34,9 @@ public class Level : MonoBehaviour
 	}*/
 
 
+	int timesFinished;
+
+
 	//
 	public void Reset()
 	{

@@ -46,6 +46,13 @@ public class Player : MonoBehaviour
 	public GameObject m_sprite;
 	public TextMesh m_scoreText;
 
+	public TextMesh m_timeMesh;
+	public TextMesh m_bestTimeMesh;
+	float m_time;
+	float m_bestTime = 999999;
+	bool m_flashTime = false;
+
+	bool m_running = false;
 
 
 	// Use this for initialization
@@ -61,7 +68,14 @@ public class Player : MonoBehaviour
 	{
 		m_score = 0;
 		transform.position = Vector3.zero;
-		Player.Instance.transform.localScale = Vector3.one; // Reset scale in case we were big when passing the previous level
+		m_sprite.transform.localScale = Vector3.one; // Reset scale in case we were big when passing the previous level
+		m_sprite.transform.localPosition = Vector3.zero;
+
+		m_time = 0;
+		m_score = 0;
+		m_flashTime = false;
+		m_bestTimeMesh.gameObject.SetActive(true);
+		m_timeMesh.text = "00:00.00";
 
 		m_runSpeed = 0;
 		m_numCollectedSteroids = 0;
@@ -78,6 +92,12 @@ public class Player : MonoBehaviour
 		if ( !m_isMovingVert && !m_isStunned ) {
 			CheckControlPressed();
 		}
+
+		if(m_running)
+			m_time += Clock.dt;
+	
+		m_timeMesh.text = FormatTime(m_time);
+		
 	}
 
 	private void CheckControlPressed()
@@ -154,9 +174,49 @@ public class Player : MonoBehaviour
 		m_isMovingVert = false;
 		PlayAnimation("run");
 		m_runSpeed = RUN_SPEED;
+		m_running = true;
 	}
 
-	public IEnumerator StopSpeed() {
+	public void StopRunning()
+	{
+		m_running = false;
+	
+		if(m_time < m_bestTime)
+		{
+			m_bestTime = m_time;
+			m_bestTimeMesh.text = FormatTime(m_time);
+		}
+
+		StartCoroutine( StopSpeed() );
+	}
+
+	public static string FormatTime(float timeInsecs)
+	{
+		string timeString = "";
+		float t = timeInsecs;
+		float mins = (int)(t / 60.0f);
+		timeString = string.Format("{0:00}:", mins);
+		float secs = t - (mins * 60);
+		timeString += string.Format("{0:00.00}", secs);
+		
+		return timeString;
+	}
+
+	private IEnumerator FlashTime()
+	{
+		while(m_flashTime)
+		{
+			m_bestTimeMesh.gameObject.SetActive(false);
+			yield return new WaitForSeconds(0.3f);
+			m_bestTimeMesh.gameObject.SetActive(true);
+			yield return new WaitForSeconds(0.5f);
+		}
+
+		m_bestTimeMesh.gameObject.SetActive(true);
+	}
+	
+
+	IEnumerator StopSpeed() {
 		m_isMovingVert = true;
 		yield return new WaitForSeconds(0.2f);
 		m_runSpeed = 0;
@@ -170,6 +230,7 @@ public class Player : MonoBehaviour
 
 	public void ScaleSprite(float amt)
 	{
+		printf.PrintPersistentMessage("scale " + amt);
 		m_sprite.transform.localScale = Vector3.one * amt;
 		m_sprite.transform.localPosition = new Vector3(0, amt / 8.0f, 0);
 

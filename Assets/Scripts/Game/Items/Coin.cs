@@ -22,7 +22,7 @@ public class Coin : Item
 		StartCoroutine("RealFX", player);
 
 		GameObject collectText = GameObject.Instantiate( m_ItemGetTextMesh, Player.Instance.transform.position, Quaternion.identity ) as GameObject;
-		collectText.GetComponent<ItemGetText>().Initialize( "Coins +" + gameValue.ToString(), Color.white );
+		collectText.GetComponent<ItemGetText>().Initialize( "Coins +" + realValue.ToString(), Color.white );
 	}
 
 	IEnumerator RealFX(Player p)

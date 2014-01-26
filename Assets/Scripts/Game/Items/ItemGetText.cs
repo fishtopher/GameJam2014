@@ -20,8 +20,9 @@ public class ItemGetText : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		this.transform.position += Vector3.up * 0.5f * Time.deltaTime;
+	void Update () 
+	{
+		this.transform.position += new Vector3(Player.Instance.m_runSpeed * 0.5f, 0.5f, 0) * Time.deltaTime;
 	}
 
 	private IEnumerator ShowText( float duration )
