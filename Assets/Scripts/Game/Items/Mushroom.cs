@@ -31,6 +31,7 @@ public class Mushroom : Item
 		((Player)p).IsStunned = true;
 		yield return new WaitForSeconds (m_realStopTime);
 		((Player)p).IsStunned = false;
+		((Player)p).CheckControlDown();
 
 		((Player)p).m_runSpeed = m_realSpeedPrePickup;
 		Player.Instance.GetComponent<Animator>().Play("run");

@@ -12,9 +12,14 @@ public class Player : MonoBehaviour
 	private const float MOVE_SPEED_VERT = 2.0f;
 	
 	private bool m_isMovingVert = false;
+	public bool CanMoveVert {
+		get { return m_isMovingVert; }
+		set { m_isMovingVert = value; }
+	}
+
 	private bool m_isStunned = false;
 	public bool IsStunned {
-		get { return IsStunned; }
+		get { return m_isStunned; }
 		set { m_isStunned = value; }
 	}
 
@@ -66,7 +71,7 @@ public class Player : MonoBehaviour
 		Vector3 movement = Vector3.right * m_runSpeed * Clock.dt;
 		transform.position += movement;
 
-		if ( !m_isMovingVert && !m_isStunned) {
+		if ( !m_isMovingVert && !m_isStunned ) {
 			CheckControlPressed();
 		}
 	}
@@ -77,17 +82,15 @@ public class Player : MonoBehaviour
 		
 		if ( Input.GetKeyDown( KeyCode.UpArrow ) && this.transform.position.y < Y_POS_MAX )
 		{
-			m_isMovingVert = true;
 			StartCoroutine( MoveUp( currentPos + MOVE_DISTANCE ) );
 		}
 		else if ( Input.GetKeyDown( KeyCode.DownArrow ) && this.transform.position.y > Y_POS_MIN )
 		{
-			m_isMovingVert = true;
 			StartCoroutine( MoveDown( currentPos - MOVE_DISTANCE ) );
 		}
 	}
 
-	private void CheckControlDown()
+	public void CheckControlDown()
 	{
 		// Continue movement if key is held down
 		if ( Input.GetKey( KeyCode.UpArrow ) && this.transform.position.y < Y_POS_MAX )
@@ -106,6 +109,8 @@ public class Player : MonoBehaviour
 
 	private IEnumerator MoveUp( float destination )
 	{
+		m_isMovingVert = true;
+
 		while ( this.transform.position.y < destination )
 		{
 			this.transform.position += Vector3.up * MOVE_SPEED_VERT * Time.deltaTime;
@@ -120,6 +125,8 @@ public class Player : MonoBehaviour
 	
 	private IEnumerator MoveDown( float destination )
 	{
+		m_isMovingVert = true;
+
 		while ( this.transform.position.y > destination )
 		{
 			this.transform.position += Vector3.down * MOVE_SPEED_VERT * Time.deltaTime;

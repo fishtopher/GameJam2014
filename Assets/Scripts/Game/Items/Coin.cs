@@ -33,6 +33,7 @@ public class Coin : Item
 		((Player)p).IsStunned = true;
 		yield return new WaitForSeconds (m_realStopTime);
 		((Player)p).IsStunned = false;
+		((Player)p).CheckControlDown();
 		Player.Instance.Score += realValue;
 		
 		((Player)p).m_runSpeed = m_realSpeedPrePickup;
