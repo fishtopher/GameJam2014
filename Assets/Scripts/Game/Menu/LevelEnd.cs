@@ -10,6 +10,7 @@ public class LevelEnd : MonoBehaviour
 	public TextMesh m_headline;
 	public TextMesh m_message;
 	public TextMesh m_continuePrompt;
+	private bool m_canPassReality;
 	int m_timesSeen = 0;
 
 	void OnEnable () 
@@ -17,15 +18,18 @@ public class LevelEnd : MonoBehaviour
 		m_timesSeen++;
 
 		m_message.text = "";
+
+		m_canPassReality = false;
 		
 		if(m_timesSeen == m_realWorldAfter)
 		{
-			m_message.text = "BUT\n\nLIFE IS NOT A VIDEO GAME";
+			m_message.text = "...BUT\n\nLIFE IS NOT A VIDEO GAME";
 			m_level.m_universe = Item.Type.Real;
 		}
-		else if(m_timesSeen > (m_realWorldAfter+2))
+		else if(m_timesSeen > (m_realWorldAfter+1))
 		{
 			m_message.text = "LIFE IS THIS FOREVER";
+			m_canPassReality = true;
 		}
 
 		SoundManager.Stop("song1");
@@ -56,7 +60,15 @@ public class LevelEnd : MonoBehaviour
 			if(InputManager.ActiveDevice.GetControl(InputControlType.Start).WasPressed ||
 			   InputManager.ActiveDevice.GetControl(InputControlType.Action1).WasPressed)
 			{
-				TheGame.Instance.PlayIntro();
+				if ( m_canPassReality && Player.Instance.NumCollectedSteroids == 0 ) {
+					m_timesSeen = 0;
+					m_level.m_universe = Item.Type.Game;
+					TheGame.Instance.PlayCredits();
+				}
+				else
+				{
+					TheGame.Instance.PlayIntro();
+				}
 			}
 		}
 	
