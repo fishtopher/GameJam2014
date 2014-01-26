@@ -12,6 +12,8 @@ public class Level : MonoBehaviour
 	public int m_numLanes = 3;
 	public int m_numItems = 100;
 	public float m_firstItem = 4;
+	public int m_itemSpawnTileInterval = 4;
+	public int m_levelTileLength = 80;
 	public VMath.FloatRange m_itemSpacing = new VMath.FloatRange(1, 2);
 
 	public GameObject[] m_itemPrefabs;
@@ -87,22 +89,139 @@ public class Level : MonoBehaviour
 		}
 	}
 
+	private GameObject SpawnTileColumn( float bgX, int[] itemSpawnListCol )
+	{
+		GameObject go = new GameObject();
+		float bgY = m_laneHeight * -( Mathf.Ceil( (float) m_numLanes / 2 ) - 1);
+		
+		for ( int i = 0; i < m_numLanes; ++i )
+		{
+			go = Util.InstantiatePrefab( m_bgPrefabs[0],  new Vector3(bgX, bgY, 2)); 
+			m_bgTiles.Add(go);
+			bgY += m_laneHeight;
+		}
+		return go;
+	}
+	
+	private GameObject SpawnSpecialColumn( float bgX, GameObject specialTile )
+	{
+		GameObject go = new GameObject();
+		float bgY = m_laneHeight * -( Mathf.Ceil( (float) m_numLanes / 2 ) - 1);
+		
+		for ( int i = 0; i < m_numLanes; ++i )
+		{
+			go = Util.InstantiatePrefab( specialTile,  new Vector3(bgX, bgY, 2)); 
+			m_bgTiles.Add(go);
+			bgY += m_laneHeight;
+		}
+		return go;
+	}
+	
+	private int[] GenerateItemSpawns()
+	{
+		int[] itemSpawnList = new int[m_numLanes];
+		for (int i = 0; i < m_numLanes; ++i) {
+			itemSpawnList[i] = -1;
+		}
+		
+		int numItemsToSpawn = (int) Mathf.Abs( Mathf.Ceil ( (float) m_numLanes / 2.0f ) );
+		/*List<int> itemSpawnRowIndices = new List<int>();
+		for (int i = 0; i < numItemsToSpawn; ++i) {
+			itemSpawnRowIndices.Add(i);
+		}
+
+		while ( numItemsToSpawn > 0 ) {
+
+			int randomIndex = Random.Range(0, itemSpawnRowIndices.Count);
+
+			int randomItem = Random.Range(0, m_itemPrefabs.Length);
+			itemSpawnList[itemSpawnRowIndices[randomIndex]] = randomItem;
+
+			if ( itemSpawnRowIndices.Count > 1) {
+				itemSpawnRowIndices.RemoveAt(itemSpawnRowIndices[randomIndex]);
+			}
+			else {
+			}
+			numItemsToSpawn--;
+		}*/
+		
+		for (int i = 0; i < numItemsToSpawn; ++i) {
+			itemSpawnList[Random.Range(0, m_numLanes)] = Random.Range(0, m_itemPrefabs.Length);
+		}
+		
+		return itemSpawnList;
+	}
+	
 	void GenerateLevel()
 	{
-		if(m_universe == Item.Type.Game)
-		{
-			m_grass.material.color = m_grassGameColour;
-			m_sky.material.color = m_skyGameColour;
+		GameObject go = new GameObject();
+		
+		List< int[] > itemSpawnList = new List< int[] >();
+		for ( int i = 0; i < m_levelTileLength; ++i ) {
+			int[] intArray = new int[m_numLanes];
+			itemSpawnList.Add( intArray );
+			
+			for ( int j = 0; j < m_numLanes; ++j ) {
+				itemSpawnList[itemSpawnList.Count - 1][j] = -1;
+			}
 		}
-		else
+		
+		m_bgTiles = new List<GameObject>();
+		
+		// Spawn start column
+		go = SpawnSpecialColumn( 0, m_bgStartPrefab );
+		
+		float bgX = go.transform.localScale.x;
+		
+		// Column loop
+		for (int i = 1; i < m_levelTileLength; ++i)
 		{
-			m_grass.material.color = m_grassRealColour;
-			m_sky.material.color = m_skyRealColour;
+			bool shouldSpawnItemsHere = false;
+			int [] columnItemSpawns = new int[m_numLanes];
+			
+			// Spawn items in this column!
+			if ( i > 0 && i % m_itemSpawnTileInterval == 0 ) {
+				shouldSpawnItemsHere = true;
+				
+				columnItemSpawns = GenerateItemSpawns();
+			}
+			
+			// Row loop
+			float bgY = m_laneHeight * -( Mathf.Ceil( (float) m_numLanes / 2 ) - 1);
+			float itemZ = -0.01f;
+			
+			for (int j = 0; j < m_numLanes; ++j)
+			{
+				if (shouldSpawnItemsHere)
+				{
+					itemSpawnList[i][j] = columnItemSpawns[j];
+					
+					if (j == 2 )
+					{
+						int x= 0;
+					}
+					
+					if ( columnItemSpawns[j] > -1 )
+					{
+						Vector3	p = new Vector3(bgX, bgY, itemZ);
+						Util.InstantiatePrefab( m_itemPrefabs[ columnItemSpawns[j] ], p);
+					}
+					
+					// Were coins spawned? Add them to subsequent columns
+					
+				}
+				bgY += m_laneHeight;
+			}
+			
+			go = SpawnTileColumn(bgX, itemSpawnList[i]);
+			bgX += go.transform.localScale.x;
 		}
+		
+		go = SpawnSpecialColumn( bgX, m_bgEndPrefab );
+		bgX += go.transform.localScale.x;
+		m_endPos = bgX;
 
-
-		GameObject go;
-		float itemX = m_firstItem * m_laneWidth;
+		/*float itemX = m_firstItem * m_laneWidth;
 		float itemZ = 0.01f;
 		m_items = new GameObject[m_numItems];
 		for(int i = 0; i < m_numItems; i++)
@@ -143,8 +262,7 @@ public class Level : MonoBehaviour
 			go.GetComponent<DualWorldGFX>().MyType = m_universe;
 			m_endPos = bgX;
 
-			bgY += m_laneHeight;
-		}
+			bgY += m_laneHeight;*/
 	}
 
 	// Update is called once per frame
