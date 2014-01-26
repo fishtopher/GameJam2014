@@ -6,6 +6,8 @@ public class Hallucinate : MonoBehaviour {
 	Vignetting m_vignette;
 	VortexEffect[] m_vortex;
 
+	public float m_decayRate = 0.33f;
+
 	public float m_vortexAngleStep = 75;
 	float m_vortexAngle = 0;
 	float m_vortexAngleTarget = 0;
@@ -57,5 +59,9 @@ public class Hallucinate : MonoBehaviour {
 		m_vignette.chromaticAberration = Mathf.Cos(m_timer) * m_abberation;
 		m_vignette.blurSpread = (m_abberation/m_abberationStep);
 		m_vignette.intensity  = (m_abberation/m_abberationStep) * 3;
+
+		m_vortexAngleTarget = Mathf.Lerp(m_vortexAngleTarget, 0, Clock.dt * m_decayRate);
+		m_abberationTarget = Mathf.Lerp(m_abberationTarget, 0, Clock.dt * m_decayRate);
+		
 	}
 }

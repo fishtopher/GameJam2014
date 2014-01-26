@@ -24,6 +24,13 @@ public class Level : MonoBehaviour
 	public GameObject[] m_items;
 	public List<GameObject> m_bgTiles;
 
+	public Renderer m_sky;
+	public Renderer m_grass;
+	public Color m_skyGameColour = new Color(41/255.0f, 147/255.0f, 221/255.0f);
+	public Color m_grassGameColour = new Color (52/255.0f, 206/255.0f, 72/255.0f);
+	public Color m_skyRealColour = new Color(41/255.0f, 147/255.0f, 221/255.0f);
+	public Color m_grassRealColour = new Color (52/255.0f, 206/255.0f, 72/255.0f);
+
 	//
 	float m_endPos;
 
@@ -82,6 +89,18 @@ public class Level : MonoBehaviour
 
 	void GenerateLevel()
 	{
+		if(m_universe == Item.Type.Game)
+		{
+			m_grass.material.color = m_grassGameColour;
+			m_sky.material.color = m_skyGameColour;
+		}
+		else
+		{
+			m_grass.material.color = m_grassRealColour;
+			m_sky.material.color = m_skyRealColour;
+		}
+
+
 		GameObject go;
 		float itemX = m_firstItem * m_laneWidth;
 		float itemZ = 0.01f;
@@ -106,6 +125,7 @@ public class Level : MonoBehaviour
 		{
 			float bgX = 0;
 			go = Util.InstantiatePrefab( m_bgStartPrefab,  new Vector3(0, bgY, 2)); 
+			go.GetComponent<DualWorldGFX>().MyType = m_universe;
 			m_bgTiles.Add(go);
 
 			bgX = go.transform.localScale.x;
@@ -114,11 +134,13 @@ public class Level : MonoBehaviour
 			{
 				go = Util.InstantiatePrefab( m_bgPrefabs[ Random.Range(0, m_bgPrefabs.Length) ],  new Vector3(bgX, bgY, 2)); 
 				m_bgTiles.Add(go);
+				go.GetComponent<DualWorldGFX>().MyType = m_universe;
 				bgX += go.transform.localScale.x;
 			}
 
 			go = Util.InstantiatePrefab( m_bgEndPrefab,  new Vector3(bgX, bgY, 2));
 			m_bgTiles.Add(go);
+			go.GetComponent<DualWorldGFX>().MyType = m_universe;
 			m_endPos = bgX;
 
 			bgY += m_laneHeight;

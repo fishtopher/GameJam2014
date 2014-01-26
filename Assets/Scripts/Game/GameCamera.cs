@@ -21,9 +21,5 @@ public class GameCamera : MonoBehaviour
 		Vector3 np = m_target.position + m_offset;
 		np.y = m_startPos.y;
 		transform.position = np;
-
-		GameObject bgArt = GameObject.Find("BG");
-		Vector3 bgPos = bgArt.transform.position;
-		bgArt.transform.position = new Vector3(np.x, bgPos.y, bgPos.z);
 	}
 }
