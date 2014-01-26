@@ -12,7 +12,7 @@ public class Level : MonoBehaviour
 	public int m_numLanes = 3;
 	public int m_numItems = 100;
 	public float m_firstItem = 4;
-	public int m_itemSpawnTileInterval = 4;
+	public int m_itemSpawnTileInterval = 5;
 	public int m_levelTileLength = 80;
 	public VMath.FloatRange m_itemSpacing = new VMath.FloatRange(1, 2);
 

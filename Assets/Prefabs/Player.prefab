@@ -83,11 +83,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e955b23c47d9d43afba802fd30856207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_boostFX: {fileID: 0}
+  m_hallucinateFX: {fileID: 0}
   m_runSpeed: 5
   m_score: 0
   m_numCollectedSteroids: 0
   m_sprite: {fileID: 0}
   m_scoreText: {fileID: 0}
+  m_timeMesh: {fileID: 0}
+  m_bestTimeMesh: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -109,7 +113,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300002, guid: 13e08fe59b34f4c4d9e37f6d9e32b371, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 13e08fe59b34f4c4d9e37f6d9e32b371, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

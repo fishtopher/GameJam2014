@@ -1621,6 +1621,10 @@ Prefab:
       propertyPath: m_Color.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .00999999978
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
   m_RootGameObject: {fileID: 11541979}
@@ -2781,7 +2785,7 @@ Transform:
   m_PrefabInternal: {fileID: 369089953}
   m_GameObject: {fileID: 829485186}
   m_LocalRotation: {x: 0, y: 0, z: .0756724104, w: .997132719}
-  m_LocalPosition: {x: 0, y: .100000001, z: 0}
+  m_LocalPosition: {x: 0, y: .100000001, z: .00999999978}
   m_LocalScale: {x: .119999997, y: .119999997, z: .283982754}
   m_Children: []
   m_Father: {fileID: 11541980}
@@ -6920,7 +6924,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300002, guid: 13e08fe59b34f4c4d9e37f6d9e32b371, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 13e08fe59b34f4c4d9e37f6d9e32b371, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1628298153
 GameObject:

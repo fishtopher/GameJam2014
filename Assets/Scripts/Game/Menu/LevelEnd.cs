@@ -26,7 +26,7 @@ public class LevelEnd : MonoBehaviour
 			m_message.text = "...BUT\n\nLIFE IS NOT A VIDEO GAME";
 			m_level.m_universe = Item.Type.Real;
 		}
-		else if(m_timesSeen > (m_realWorldAfter+1))
+		else if(m_timesSeen >= (m_realWorldAfter+1))
 		{
 			m_message.text = "LIFE IS THIS FOREVER";
 			m_canPassReality = true;
