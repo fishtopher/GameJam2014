@@ -49,8 +49,8 @@ public class Player : MonoBehaviour
 	{
 		Instance = this;
 		m_runSpeed = 0;
-		m_numCollectedSteroids = 0;
-		StartCoroutine( Wait(0.5f) );
+		//m_numCollectedSteroids = 0;
+		//StartCoroutine( Wait(0.5f) );
 	}
 
 	public void Reset()
@@ -151,6 +151,8 @@ public class Player : MonoBehaviour
 		Animator playerAnim = this.GetComponent<Animator>();
 		playerAnim.Play("run");
 		m_runSpeed = RUN_SPEED;
+
+		SoundManager.PlaySound("song1");
 	}
 
 	public IEnumerator StopSpeed() {

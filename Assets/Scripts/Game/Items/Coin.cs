@@ -12,6 +12,8 @@ public class Coin : Item
 	{
 		Player.Instance.Score += gameValue;
 
+		SoundManager.PlaySound("coin");
+
 		GameObject collectText = GameObject.Instantiate( m_ItemGetTextMesh, Player.Instance.transform.position, Quaternion.identity ) as GameObject;
 		collectText.GetComponent<ItemGetText>().Initialize( "+" + gameValue.ToString(), Color.white );
 	}
@@ -20,6 +22,8 @@ public class Coin : Item
 	{
 		m_realSpeedPrePickup = player.m_runSpeed;
 		StartCoroutine("RealFX", player);
+
+		SoundManager.PlaySound("coin");
 
 		GameObject collectText = GameObject.Instantiate( m_ItemGetTextMesh, Player.Instance.transform.position, Quaternion.identity ) as GameObject;
 		collectText.GetComponent<ItemGetText>().Initialize( "Coins +" + gameValue.ToString(), Color.white );
