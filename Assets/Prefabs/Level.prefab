@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -45,6 +45,8 @@ MonoBehaviour:
   m_numLanes: 3
   m_numItems: 20
   m_firstItem: 4
+  m_itemSpawnTileInterval: 6
+  m_levelTileLength: 80
   m_itemSpacing:
     Min: 3
     Max: 5
@@ -61,6 +63,12 @@ MonoBehaviour:
   m_endScene: {fileID: 0}
   m_items: []
   m_bgTiles: []
+  m_sky: {fileID: 0}
+  m_grass: {fileID: 0}
+  m_skyGameColour: {r: .160784319, g: .576470613, b: .866666675, a: 1}
+  m_grassGameColour: {r: .203921571, g: .807843149, b: .282352954, a: 1}
+  m_skyRealColour: {r: .160784319, g: .576470613, b: .866666675, a: 1}
+  m_grassRealColour: {r: .203921571, g: .807843149, b: .282352954, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

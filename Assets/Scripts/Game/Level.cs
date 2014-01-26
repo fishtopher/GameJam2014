@@ -195,12 +195,7 @@ public class Level : MonoBehaviour
 				if (shouldSpawnItemsHere)
 				{
 					itemSpawnList[i][j] = columnItemSpawns[j];
-					
-					if (j == 2 )
-					{
-						int x= 0;
-					}
-					
+
 					if ( columnItemSpawns[j] > -1 )
 					{
 						Vector3	p = new Vector3(bgX, bgY, itemZ);

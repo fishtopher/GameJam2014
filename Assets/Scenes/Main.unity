@@ -89,7 +89,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &11541980
 Transform:
   m_ObjectHideFlags: 0
@@ -1355,7 +1355,49 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200000, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_Text
+      value: PRESS SPACE
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200002, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_Text
+      value: 'AS GAMERS
+
+        ARE...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .119999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .119999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10200004, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_Text
+      value: PRESS SPACE
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d68df7b341944d6da5e10afd1dd66a0, type: 2}
@@ -2033,7 +2075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &804046430
 Transform:
   m_ObjectHideFlags: 0
@@ -2064,6 +2106,8 @@ MonoBehaviour:
   m_numLanes: 3
   m_numItems: 10
   m_firstItem: 4
+  m_itemSpawnTileInterval: 6
+  m_levelTileLength: 80
   m_itemSpacing:
     Min: 3
     Max: 5
@@ -2108,7 +2152,7 @@ Transform:
   m_PrefabInternal: {fileID: 369089953}
   m_GameObject: {fileID: 815243376}
   m_LocalRotation: {x: 0, y: 0, z: .0756719857, w: .997132778}
-  m_LocalPosition: {x: -.171595529, y: -1.11691856, z: .0582773685}
+  m_LocalPosition: {x: -.25, y: -1.11691856, z: .0582773685}
   m_LocalScale: {x: .0556261204, y: .0556261204, z: .0556261316}
   m_Children: []
   m_Father: {fileID: 11541980}
@@ -2120,7 +2164,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 369089953}
   m_GameObject: {fileID: 815243376}
-  m_Text: PRESS START
+  m_Text: PRESS SPACE
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -2180,8 +2224,8 @@ Transform:
   m_PrefabInternal: {fileID: 369089953}
   m_GameObject: {fileID: 829485186}
   m_LocalRotation: {x: 0, y: 0, z: .0756724104, w: .997132719}
-  m_LocalPosition: {x: -.0410126857, y: .1817379, z: 0}
-  m_LocalScale: {x: .283982754, y: .283982664, z: .283982754}
+  m_LocalPosition: {x: 0, y: .150000006, z: 0}
+  m_LocalScale: {x: .119999997, y: .119999997, z: .283982754}
   m_Children: []
   m_Father: {fileID: 11541980}
 --- !u!102 &829485188
@@ -2192,7 +2236,9 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 369089953}
   m_GameObject: {fileID: 829485186}
-  m_Text: GAME
+  m_Text: 'AS GAMERS
+
+    ARE...'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -2314,7 +2360,7 @@ Transform:
   m_PrefabInternal: {fileID: 369089953}
   m_GameObject: {fileID: 976247950}
   m_LocalRotation: {x: 0, y: 0, z: .0756719857, w: .997132778}
-  m_LocalPosition: {x: -.171596006, y: -1.08760262, z: 0}
+  m_LocalPosition: {x: -.25, y: -1.08760262, z: 0}
   m_LocalScale: {x: .0556259975, y: .0556259975, z: .0556260012}
   m_Children: []
   m_Father: {fileID: 11541980}
@@ -2326,7 +2372,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 369089953}
   m_GameObject: {fileID: 976247950}
-  m_Text: PRESS START
+  m_Text: PRESS SPACE
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
