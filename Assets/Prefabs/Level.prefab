@@ -45,7 +45,7 @@ MonoBehaviour:
   m_numLanes: 3
   m_numItems: 20
   m_firstItem: 4
-  m_itemSpawnTileInterval: 6
+  m_itemSpawnTileInterval: 5
   m_levelTileLength: 80
   m_itemSpacing:
     Min: 3
