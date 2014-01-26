@@ -14,6 +14,7 @@ public class Mushroom : Item
 
 		GameObject collectText = GameObject.Instantiate( m_ItemGetTextMesh, Player.Instance.transform.position, Quaternion.identity ) as GameObject;
 		collectText.GetComponent<ItemGetText>().Initialize( "SUPER POWER!", Color.white );
+		
 	}
 	
 	protected override void CollectReal(Player player)
@@ -22,6 +23,7 @@ public class Mushroom : Item
 		collectText.GetComponent<ItemGetText>().Initialize( "HALLUCINATION!", Color.white );
 
 		SoundManager.PlaySound("stun");
+		Player.Instance.Hallucinate();
 
 		m_realSpeedPrePickup = player.m_runSpeed;
 		StartCoroutine("RealFX", player);

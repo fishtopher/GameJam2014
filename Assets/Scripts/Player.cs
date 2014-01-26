@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
 	private const float Y_POS_MIN = -0.64f;
 	private const float MOVE_DISTANCE = 0.64f;
 	private const float MOVE_SPEED_VERT = 2.0f;
+
+	public ParticleSystem m_boostFX;
+	public Hallucinate m_hallucinateFX;
 	
 	private bool m_isMovingVert = false;
 	public bool CanMoveVert {
@@ -71,6 +74,9 @@ public class Player : MonoBehaviour
 		m_sprite.transform.localScale = Vector3.one; // Reset scale in case we were big when passing the previous level
 		m_sprite.transform.localPosition = Vector3.zero;
 
+		m_boostFX.Stop();
+		m_hallucinateFX.Reset();
+		
 		m_time = 0;
 		m_score = 0;
 		m_flashTime = false;
@@ -216,7 +222,23 @@ public class Player : MonoBehaviour
 
 		m_bestTimeMesh.gameObject.SetActive(true);
 	}
-	
+
+	public void StartBoost(float amt)
+	{
+		m_runSpeed *= amt;
+		m_boostFX.Play();
+	}
+	public void StopBoost(float amt)
+	{
+		m_runSpeed /= amt;
+		m_boostFX.Stop();
+	}
+
+	public void Hallucinate()
+	{
+		m_hallucinateFX.StepUp();
+	}
+
 
 	IEnumerator StopSpeed() {
 		m_isMovingVert = true;

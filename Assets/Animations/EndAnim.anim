@@ -25,12 +25,12 @@ AnimationClip:
         value: {x: 0, y: 0, z: 10}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 150704160
+        tangentMode: 1677747574
       - time: 1
         value: {x: 0, y: 0, z: 10}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 149225562
+        tangentMode: 3145782
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: Quad
@@ -75,20 +75,20 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: -.0073826313}
+        value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 4
       - time: 2.98333335
-        value: {x: .00697159767, y: .00697159767, z: .0079305768}
+        value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 1677747574
+        tangentMode: 150704160
       - time: 3
         value: {x: .741539478, y: .741539478, z: .734156847}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 3145782
+        tangentMode: 149225562
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: MoveOnPrompt
@@ -99,17 +99,17 @@ AnimationClip:
         value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 150510372
+        tangentMode: 0
       - time: 1.98333335
         value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 177920052
+        tangentMode: 55
       - time: 2
         value: {x: 1, y: 1, z: 1}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: -2147483599
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: PostGameMessage
@@ -347,10 +347,10 @@ AnimationClip:
         outSlope: 0
         tangentMode: 0
       - time: 2.98333335
-        value: .00697159767
+        value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 1
+        tangentMode: 0
       - time: 3
         value: .741539478
         inSlope: 0
@@ -371,10 +371,10 @@ AnimationClip:
         outSlope: 0
         tangentMode: 0
       - time: 2.98333335
-        value: .00697159767
+        value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 1
+        tangentMode: 0
       - time: 3
         value: .741539478
         inSlope: 0
@@ -390,15 +390,15 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -.0073826313
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       - time: 2.98333335
-        value: .0079305768
+        value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 1
+        tangentMode: 0
       - time: 3
         value: .734156847
         inSlope: 0
@@ -540,4 +540,18 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []
-  m_Events: []
+  m_Events:
+  - time: 2
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

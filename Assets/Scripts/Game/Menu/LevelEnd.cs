@@ -33,7 +33,6 @@ public class LevelEnd : MonoBehaviour
 		// Drug testing!
 		if ( Player.Instance.NumCollectedSteroids > 0 ) 
 		{
-			Player.Instance.PlayAnimation("fall");
 			m_headline.text = "LOSER";
 			m_message.text = "WINNERS DON'T DO DRUGS";
 
@@ -52,18 +51,20 @@ public class LevelEnd : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		
-		if(InputManager.ActiveDevice.GetControl(InputControlType.Start).WasPressed ||
-		   InputManager.ActiveDevice.GetControl(InputControlType.Action1).WasPressed)
+		if(!GetComponentInChildren<Animation>().isPlaying)
 		{
-			TheGame.Instance.PlayIntro();
+			if(InputManager.ActiveDevice.GetControl(InputControlType.Start).WasPressed ||
+			   InputManager.ActiveDevice.GetControl(InputControlType.Action1).WasPressed)
+			{
+				TheGame.Instance.PlayIntro();
+			}
 		}
 	
 	}
 
 	IEnumerator FailEndActions()
 	{
-		Player.Instance.GetComponent<Animator>().Play("fall");
+		Player.Instance.PlayAnimation("fall");	
 		SoundManager.PlaySound("fall");
 
 		yield return new WaitForSeconds(1.0f);

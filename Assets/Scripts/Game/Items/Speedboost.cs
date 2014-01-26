@@ -20,9 +20,9 @@ public class Speedboost : Item
 
 	IEnumerator GameFX(Player p)
 	{
-		((Player)p).m_runSpeed *= m_speedBoost;
+		((Player)p).StartBoost(m_speedBoost);
 		yield return new WaitForSeconds (m_duration);
-		((Player)p).m_runSpeed /= m_speedBoost;
+		((Player)p).StopBoost(m_speedBoost);
 		Player.Instance.PlayAnimation("run");
 	}
 	
