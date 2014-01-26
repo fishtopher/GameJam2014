@@ -172,7 +172,11 @@ public class Level : MonoBehaviour
 		go = SpawnSpecialColumn( 0, m_bgStartPrefab );
 		
 		float bgX = go.transform.localScale.x;
-		
+
+		int numItemsToSpawn = (int) Mathf.Abs( Mathf.Ceil ( (float) m_numLanes / 2.0f ) );
+		m_items = new GameObject[m_levelTileLength * numItemsToSpawn];
+		int itemIndex = 0;
+
 		// Column loop
 		for (int i = 1; i < m_levelTileLength; ++i)
 		{
@@ -199,7 +203,12 @@ public class Level : MonoBehaviour
 					if ( columnItemSpawns[j] > -1 )
 					{
 						Vector3	p = new Vector3(bgX, bgY, itemZ);
-						Util.InstantiatePrefab( m_itemPrefabs[ columnItemSpawns[j] ], p);
+						m_items[itemIndex] = Util.InstantiatePrefab( m_itemPrefabs[ columnItemSpawns[j] ], p);
+
+						Item item = m_items[itemIndex].GetComponent<Item>();
+						item.MyType = m_universe;
+
+						itemIndex++;
 					}
 					
 					// Were coins spawned? Add them to subsequent columns
@@ -207,12 +216,13 @@ public class Level : MonoBehaviour
 				}
 				bgY += m_laneHeight;
 			}
-			
+
 			go = SpawnTileColumn(bgX, itemSpawnList[i]);
 			bgX += go.transform.localScale.x;
 		}
 		
 		go = SpawnSpecialColumn( bgX, m_bgEndPrefab );
+		go.GetComponent<DualWorldGFX>().MyType = m_universe;
 		bgX += go.transform.localScale.x;
 		m_endPos = bgX;
 
