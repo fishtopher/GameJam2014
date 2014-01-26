@@ -167,4 +167,11 @@ public class Player : MonoBehaviour
 		Animator playerAnim = m_sprite.GetComponent<Animator>();
 		playerAnim.Play(animName);
 	}
+
+	public void ScaleSprite(float amt)
+	{
+		m_sprite.transform.localScale = Vector3.one * amt;
+		m_sprite.transform.localPosition = new Vector3(0, amt / 8.0f, 0);
+
+	}
 }

@@ -8,7 +8,7 @@ public class Mushroom : Item
 
 	protected override void CollectGame(Player player)
 	{
-		Player.Instance.transform.localScale = Vector3.one * 2;
+		Player.Instance.ScaleSprite(2);
 
 		GameObject collectText = GameObject.Instantiate( m_ItemGetTextMesh, Player.Instance.transform.position, Quaternion.identity ) as GameObject;
 		collectText.GetComponent<ItemGetText>().Initialize( "SUPER POWER!", Color.white );

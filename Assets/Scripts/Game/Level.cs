@@ -81,6 +81,7 @@ public class Level : MonoBehaviour
 	{
 		GameObject go;
 		float itemX = m_firstItem * m_laneWidth;
+		float itemZ = 0.01f;
 		m_items = new GameObject[m_numItems];
 		for(int i = 0; i < m_numItems; i++)
 		{
@@ -88,7 +89,7 @@ public class Level : MonoBehaviour
 			//float ypos = LaneYPos(Random.Range(0,m_numLanes));
 			float ypos = Random.Range(0,m_numLanes) * m_laneHeight + m_laneHeight * -( Mathf.Ceil( (float) m_numLanes / 2 ) - 1);
 
-			Vector3	p = new Vector3(itemX, ypos, 0);
+			Vector3	p = new Vector3(itemX, ypos, itemZ);
 			m_items[i] = Util.InstantiatePrefab( m_itemPrefabs[ Random.Range(0, m_itemPrefabs.Length) ], p);
 			Item item = m_items[i].GetComponent<Item>();
 			item.MyType = m_universe;
