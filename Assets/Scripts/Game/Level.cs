@@ -206,7 +206,7 @@ public class Level : MonoBehaviour
 			
 			// Row loop
 			float bgY = m_laneHeight * -( Mathf.Ceil( (float) m_numLanes / 2 ) - 1);
-			float itemZ = -0.01f;
+			float itemZ = 0.01f;
 			
 			for (int j = 0; j < m_numLanes; ++j)
 			{
